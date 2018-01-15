@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package protobuffer;
+
+service FileSender {
+    rpc SendFile(Files) returns(Resp){}
+}
+
+message File {
+    bytes file = 1;
+    string fileName = 2;
+}
+
+message Files {
+    repeated File files = 1;
+}
+
+message Resp {
+    string resp = 1;
+}
