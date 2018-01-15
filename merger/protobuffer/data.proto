@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package protobuffer;
+
+service Merger {
+    rpc Merge(Data) returns(Data);
+}
+
+message Entity {
+    int32 Code = 1;
+    string REF = 2;
+    string Display = 3;
+}
+
+message Data {
+    repeated Entity entity = 1;
+}
+
