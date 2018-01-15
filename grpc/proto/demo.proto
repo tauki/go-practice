@@ -1,0 +1,27 @@
+syntax = 'proto3';
+
+package proto;
+
+enum CompanyType {
+	Private = 0;
+	Public = 1;
+	NonProfit = 2;
+};
+
+message AddressInfo {
+	string Country = 5;
+	string City = 6;
+	string Street = 7;
+}
+
+message Company {
+	string Name = 1;
+	repeated Employee Employees = 2;
+	CompanyType Type = 3;
+	AddressInfo Adress = 4;
+}
+
+message Employee {
+	 string Name = 1;
+	 string SSN = 2;
+}
