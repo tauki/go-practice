@@ -1,0 +1,51 @@
+{
+ "type": "primary",
+ "master": 3,
+ "entity": [
+  {
+   "code": 1,
+   "ref": "Color",
+   "display": "Runway Hit"
+  },
+  {
+   "code": 2,
+   "ref": "Color",
+   "display": "Blue"
+  },
+  {
+   "code": 3,
+   "ref": "Color",
+   "display": "Green"
+  },
+  {
+   "code": 4,
+   "ref": "Color",
+   "display": "Red"
+  },
+  {
+   "code": 5,
+   "ref": "Color",
+   "display": "Orange"
+  },
+  {
+   "code": 6,
+   "ref": "Color",
+   "display": "Yellow"
+  },
+  {
+   "code": 7,
+   "ref": "Color",
+   "display": "Black"
+  },
+  {
+   "code": 8,
+   "ref": "Color",
+   "display": "White"
+  },
+  {
+   "code": 9,
+   "ref": "Color",
+   "display": "Indigo"
+  }
+ ]
+}

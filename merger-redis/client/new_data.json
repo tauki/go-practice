@@ -1,0 +1,21 @@
+{
+ "type": "primary",
+ "master": 3,
+ "entity": [
+  {
+   "code": 1,
+   "ref": "Color",
+   "display": "Runway Hit"
+  },
+  {
+   "code": 22,
+   "ref": "Color",
+   "display": "Bright Blue"
+  },
+  {
+   "code": 33,
+   "ref": "Color",
+   "display": "Light Green"
+  }
+ ]
+}
