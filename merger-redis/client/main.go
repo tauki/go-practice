@@ -31,9 +31,8 @@ func (h *handler) get(gc *gin.Context) {
 	r, err := c.Merge(context.Background(), &data)
 	if err != nil {
 		gc.JSON(http.StatusNoContent, err)
+		return
 	}
-
-	//log.Println(r)
 	gc.JSON(http.StatusOK, r)
 }
 
@@ -43,7 +42,7 @@ func (h *handler) post(gc *gin.Context){
 	gc.BindJSON(&data)
 	r, err := c.Merge(context.Background(), data)
 	if err != nil {
-		gc.JSON(http.StatusBadRequest, err)
+		gc.JSON(http.StatusBadRequest, gin.H{"msg": err})
 		return
 	}
 	gc.JSON(http.StatusOK, r)
