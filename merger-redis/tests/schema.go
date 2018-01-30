@@ -1,7 +1,9 @@
 package main
 
-const Schema = `{
+// schema generated using :
+// https://swagger-toolbox.firebaseapp.com/
 
+const Schema = `{
     "properties": {
         "type": {
             "type": "string"
