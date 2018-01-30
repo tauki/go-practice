@@ -3,12 +3,11 @@ package main
 
 import (
 	pb "tauki.com/practice/merger/protobuffer"
+	"github.com/gin-gonic/gin"
 	"google.golang.org/grpc"
 	"log"
 	"context"
-	"fmt"
 	"encoding/json"
-	"os"
 	"io/ioutil"
 	"net/http"
 )
@@ -25,24 +24,36 @@ func getHandler(c *grpc.ClientConn) *handler {
 	return &handler{client: c}
 }
 
-func (h *handler) send(w http.ResponseWriter, req *http.Request) {
+func (h *handler) get(gc *gin.Context) {
 	c := pb.NewMergerClient(h.client)
 
 	data := readData()
 	r, err := c.Merge(context.Background(), &data)
 	if err != nil {
-		log.Fatalf("%v", err)
+		gc.JSON(http.StatusNoContent, err)
 	}
 
-	log.Println(r)
-	json.NewEncoder(w).Encode(r)
+	//log.Println(r)
+	gc.JSON(http.StatusOK, r)
+}
+
+func (h *handler) post(gc *gin.Context){
+	c := pb.NewMergerClient(h.client)
+	var data *pb.Data
+	gc.BindJSON(&data)
+	r, err := c.Merge(context.Background(), data)
+	if err != nil {
+		gc.JSON(http.StatusBadRequest, err)
+		return
+	}
+	gc.JSON(http.StatusOK, r)
 }
 
 func readData() (pb.Data) {
 	var data pb.Data
 
-	pwd, _ := os.Getwd()
-	fmt.Println(pwd)
+	//pwd, _ := os.Getwd()
+	//fmt.Println(pwd)
 
 	oldData, _ := ioutil.ReadFile("new_data.json")
 
@@ -59,7 +70,13 @@ func main () {
 
 	h := getHandler(conn)
 
-	http.HandleFunc("/", h.send)
+	//http.HandleFunc("/", h.send)
+	//http.ListenAndServe(":9000", nil)
 
-	http.ListenAndServe(":9000", nil)
+	router := gin.Default()
+
+	router.GET("/", h.get)
+	router.POST("/", h.post)
+
+	router.Run(":9000")
 }

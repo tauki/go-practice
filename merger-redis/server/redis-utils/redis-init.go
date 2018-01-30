@@ -30,6 +30,7 @@ func main() {
 
 	data := readData()
 	s, err := json.Marshal(data)
+	client.Del("old")
 	err = client.Set("old", s, 0).Err()
 	if err != nil {
 		panic(err)

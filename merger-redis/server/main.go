@@ -20,7 +20,7 @@ type server struct{}
 func (s *server) Merge(ctx context.Context, in *pb.Data) (*pb.Data, error){
 	client := redis.NewClient(&redis.Options{
 		Addr:     "localhost:6379",
-		Password: "pass", // no password set
+		Password: "pass",
 		DB:       0,  // use default DB
 	})
 
@@ -28,11 +28,13 @@ func (s *server) Merge(ctx context.Context, in *pb.Data) (*pb.Data, error){
 	if err != nil {
 		panic(err)
 	}
+
 	var oldData pb.Data
 	err = json.Unmarshal([]byte(val), &oldData)
 	if err != nil {
 		panic(err)
 	}
+
 	for _, entity := range in.Entity {
 		check := true
 		for _, old := range oldData.Entity {
