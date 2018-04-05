@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+service OrderService {
+    rpc UpdateOrder(Data) returns (Beer);
+}
+
+message Data {
+    string id = 1;
+    string type = 2;
+    string additional = 3;
+    bytes patch = 4;
+}
+
+message Beer {
+    bool success = 1;
+}
