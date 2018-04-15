@@ -1,22 +1,22 @@
 package main
 
 import (
-	"google.golang.org/grpc"
-	pb "tauki.com/practice/filesend/protobuffer"
-	"log"
 	"context"
-	"io/ioutil"
 	"fmt"
+	"google.golang.org/grpc"
+	"io/ioutil"
+	"log"
+	pb "tauki.com/practice/filesend/protobuffer"
 )
 
 const (
-	address = "localhost:50051"
+	address   = "localhost:50051"
 	directory = "test/"
 )
 
 func getFiles() *pb.Files {
 	dir, err := ioutil.ReadDir(directory)
-	if err!=nil {
+	if err != nil {
 		log.Fatal(err)
 	}
 
@@ -28,13 +28,13 @@ func getFiles() *pb.Files {
 		}
 
 		files = append(files, &pb.File{
-			File:f,
+			File:     f,
 			FileName: fileInfo.Name(),
 		})
 	}
 
 	return &pb.Files{
-		Files:files,
+		Files: files,
 	}
 }
 
@@ -47,7 +47,7 @@ func main() {
 
 	c := pb.NewFileSenderClient(conn)
 	r, err := c.SendFile(context.Background(), getFiles())
-	if err!= nil {
+	if err != nil {
 		fmt.Println(err)
 	}
 	fmt.Println(r)
