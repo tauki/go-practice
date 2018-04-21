@@ -2,10 +2,10 @@ package main
 
 import (
 	"context"
-	pb "tauki.com/practice/hello-grpc/protobuffer"
-	"net"
-	"log"
 	"google.golang.org/grpc"
+	"log"
+	"net"
+	pb "tauki.com/practice/hello-grpc/protobuffer"
 )
 
 const (
@@ -21,7 +21,6 @@ func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloRe
 func (s *server) Add(ctx context.Context, in *pb.Calc) (*pb.Sum, error) {
 	return &pb.Sum{Sum: in.F + in.S}, nil
 }
-
 
 func main() {
 	lis, err := net.Listen("tcp", port)

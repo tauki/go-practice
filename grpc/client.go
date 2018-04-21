@@ -1,18 +1,16 @@
 package main
 
 import (
-	pb "tauki.com/practice/grpc/proto"
-	"log"
-	"github.com/golang/protobuf/proto"
 	"fmt"
+	"github.com/golang/protobuf/proto"
+	"log"
+	pb "tauki.com/practice/grpc/proto"
 )
 
-
-
-func main () {
+func main() {
 	comp := &pb.Company{
 		Name: "Example Corp",
-		Adress : &pb.AddressInfo{
+		Adress: &pb.AddressInfo{
 			City:    "London",
 			Country: "UK",
 		},
