@@ -5,6 +5,8 @@ import (
 	"io"
 )
 
+//todo: Add logger
+
 const token = "I am a token"
 
 func main() {
