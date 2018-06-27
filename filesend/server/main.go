@@ -1,16 +1,16 @@
 package main
 
 import (
-	pb "tauki.com/practice/filesend/protobuffer"
-	"google.golang.org/grpc"
-	"net"
-	"log"
 	"context"
+	"google.golang.org/grpc"
 	"io/ioutil"
+	"log"
+	"net"
+	pb "tauki.com/practice/filesend/protobuffer"
 )
 
 const (
-	port = ":50051"
+	port      = ":50051"
 	directory = "test/"
 )
 
@@ -21,7 +21,7 @@ func (s *server) SendFile(ctx context.Context, in *pb.Files) (*pb.Resp, error) {
 
 	for _, file := range in.Files {
 		err := ioutil.WriteFile(directory+file.FileName, file.File, 0777)
-		if err!= nil {
+		if err != nil {
 			log.Fatal(err)
 			return &pb.Resp{Resp: "failed"}, err
 		}
@@ -42,4 +42,3 @@ func main() {
 		log.Fatalf("Failed to serve %v", err)
 	}
 }
-

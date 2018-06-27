@@ -1,18 +1,17 @@
 package main
 
-
 import (
-	pb "tauki.com/practice/hello-grpc/protobuffer"
+	"context"
 	"google.golang.org/grpc"
 	"log"
-	"context"
+	pb "tauki.com/practice/hello-grpc/protobuffer"
 )
 
 const (
 	address = "localhost:50051"
 )
 
-func main () {
+func main() {
 	conn, err := grpc.Dial(address, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("Did not connect %v", err)
