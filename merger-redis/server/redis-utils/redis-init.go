@@ -1,11 +1,11 @@
 package main
 
 import (
-	"github.com/go-redis/redis"
-	"os"
-	"fmt"
-	"io/ioutil"
 	"encoding/json"
+	"fmt"
+	"github.com/go-redis/redis"
+	"io/ioutil"
+	"os"
 	pb "tauki.com/practice/merger-redis/protobuffer"
 )
 
@@ -25,7 +25,7 @@ func main() {
 	client := redis.NewClient(&redis.Options{
 		Addr:     "localhost:6379",
 		Password: "pass", // no password set
-		DB:       0,  // use default DB
+		DB:       0,      // use default DB
 	})
 
 	data := readData()

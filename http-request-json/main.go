@@ -1,18 +1,19 @@
 package main
 
 import (
-	"net/http"
-	"fmt"
 	"encoding/json"
-	m "tauki.com/practice/http-request-json/model"
+	"fmt"
+	"net/http"
 	"strconv"
+	m "tauki.com/practice/http-request-json/model"
 )
 
-const(
-	token = `imle3KGX1ilyFUpeVHgfqqVzGSsBDXgudE7u6OH4BkLdMwTUmqcWTBlX5TJdt7dA`
-	tokenType = `X-CSRFToken`
-	url = "https://backenddev.shophobe.com/api/references/"
+const (
+	token      = `imle3KGX1ilyFUpeVHgfqqVzGSsBDXgudE7u6OH4BkLdMwTUmqcWTBlX5TJdt7dA`
+	tokenType  = `X-CSRFToken`
+	url        = "https://backenddev.shophobe.com/api/references/"
 	categories = url + "categories/"
+	// TODO: Finding a proper representation for temp
 	temp = 100
 )
 
@@ -42,12 +43,13 @@ func main() {
 	// read subcategories
 	for index, i := range category {
 		var result []m.Category
-		for j := i.ID +1; j < temp ; j++ {
+		for j := i.ID + 1; j < temp; j++ {
 			sURL := categories + strconv.Itoa(i.ID) + "/" + strconv.Itoa(j)
 			req, err = http.NewRequest("GET", sURL, nil)
 			if err != nil {
 				panic(err)
 			}
+
 			fmt.Println(sURL)
 
 			resp, err = client.Do(req)
@@ -65,7 +67,6 @@ func main() {
 			result = append(result, data)
 		}
 		category[index].Sub = result
-
 	}
 
 	d, _ := json.MarshalIndent(&category, " ", " ")

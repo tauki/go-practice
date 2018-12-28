@@ -1,15 +1,14 @@
 package main
 
-
 import (
-	pb "tauki.com/practice/merger/protobuffer"
-	"github.com/gin-gonic/gin"
-	"google.golang.org/grpc"
-	"log"
 	"context"
 	"encoding/json"
+	"github.com/gin-gonic/gin"
+	"google.golang.org/grpc"
 	"io/ioutil"
+	"log"
 	"net/http"
+	pb "tauki.com/practice/merger/protobuffer"
 )
 
 const (
@@ -36,7 +35,7 @@ func (h *handler) get(gc *gin.Context) {
 	gc.JSON(http.StatusOK, r)
 }
 
-func (h *handler) post(gc *gin.Context){
+func (h *handler) post(gc *gin.Context) {
 	c := pb.NewMergerClient(h.client)
 	var data *pb.Data
 	gc.BindJSON(&data)
@@ -48,7 +47,7 @@ func (h *handler) post(gc *gin.Context){
 	gc.JSON(http.StatusOK, r)
 }
 
-func readData() (pb.Data) {
+func readData() pb.Data {
 	var data pb.Data
 
 	//pwd, _ := os.Getwd()
@@ -60,7 +59,7 @@ func readData() (pb.Data) {
 	return data
 }
 
-func main () {
+func main() {
 	conn, err := grpc.Dial(address, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("Did not connect %v", err)

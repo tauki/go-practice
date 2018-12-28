@@ -1,16 +1,15 @@
 package main
 
-
 import (
-	pb "tauki.com/practice/merger/protobuffer"
-	"google.golang.org/grpc"
-	"log"
 	"context"
-	"fmt"
 	"encoding/json"
-	"os"
+	"fmt"
+	"google.golang.org/grpc"
 	"io/ioutil"
+	"log"
 	"net/http"
+	"os"
+	pb "tauki.com/practice/merger/protobuffer"
 )
 
 const (
@@ -31,14 +30,14 @@ func (h *handler) send(w http.ResponseWriter, req *http.Request) {
 	data := readData()
 	r, err := c.Merge(context.Background(), &data)
 	if err != nil {
-		log.Fatalf("could not calculate %v", err)
+		log.Fatalf("%v", err)
 	}
 
 	log.Println(r)
 	json.NewEncoder(w).Encode(r)
 }
 
-func readData() (pb.Data) {
+func readData() pb.Data {
 	var data pb.Data
 
 	pwd, _ := os.Getwd()
@@ -50,7 +49,7 @@ func readData() (pb.Data) {
 	return data
 }
 
-func main () {
+func main() {
 	conn, err := grpc.Dial(address, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("Did not connect %v", err)
