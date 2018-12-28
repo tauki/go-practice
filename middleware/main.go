@@ -1,8 +1,8 @@
 package middleware
 
 import (
-	"net/http"
 	"io"
+	"net/http"
 )
 
 //todo: Add logger
@@ -20,14 +20,14 @@ func main() {
 	}
 }
 
-func Middleware(h http.Handler, middleware ...func(http.Handler) http.Handler) (http.Handler) {
+func Middleware(h http.Handler, middleware ...func(http.Handler) http.Handler) http.Handler {
 	for _, mw := range middleware {
 		h = mw(h)
 	}
 	return h
 }
 
-func AuthMiddleWare(h http.Handler) (http.Handler) {
+func AuthMiddleWare(h http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 
 		requestToken := r.Header.Get("token")

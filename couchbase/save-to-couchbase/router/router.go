@@ -2,8 +2,8 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"tauki.com/practice/couchbase/save-to-couchbase/models"
-	"tauki.com/practice/couchbase/save-to-couchbase/router/middleware"
+	"github.com/tauki/go-practice/couchbase/save-to-couchbase/models"
+	"github.com/tauki/go-practice/couchbase/save-to-couchbase/router/middleware"
 	"net/http"
 )
 

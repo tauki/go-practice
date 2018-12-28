@@ -3,10 +3,10 @@ package main
 import (
 	"context"
 	"fmt"
+	pb "github.com/tauki/go-practice/filesend/protobuffer"
 	"google.golang.org/grpc"
 	"io/ioutil"
 	"log"
-	pb "tauki.com/practice/filesend/protobuffer"
 )
 
 const (

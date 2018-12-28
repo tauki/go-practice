@@ -1,8 +1,8 @@
 package main
 
 import (
+	pb "github.com/tauki/go-practice/merger-redis/protobuffer"
 	"gopkg.in/h2non/baloo.v3"
-	pb "tauki.com/practice/merger-redis/protobuffer"
 	"testing"
 )
 

@@ -3,8 +3,8 @@ package middleware
 import (
 	"github.com/getsentry/raven-go"
 	"github.com/gin-gonic/gin"
-	"tauki.com/practice/couchbase/save-to-couchbase/router/middleware/cors"
-	"tauki.com/practice/couchbase/save-to-couchbase/router/middleware/sentry"
+	"github.com/tauki/go-practice/couchbase/save-to-couchbase/router/middleware/cors"
+	"github.com/tauki/go-practice/couchbase/save-to-couchbase/router/middleware/sentry"
 )
 
 func InitiateMiddleware(router *gin.Engine) {

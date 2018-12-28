@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/go-redis/redis"
+	pb "github.com/tauki/go-practice/merger-redis/protobuffer"
 	"io/ioutil"
 	"os"
-	pb "tauki.com/practice/merger-redis/protobuffer"
 )
 
 func readData() pb.Data {

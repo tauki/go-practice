@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/golang/protobuf/proto"
+	pb "github.com/tauki/go-practice/grpc/proto"
 	"log"
-	pb "tauki.com/practice/grpc/proto"
 )
 
 func main() {

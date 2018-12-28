@@ -2,10 +2,10 @@ package main
 
 import (
 	"context"
+	pb "github.com/tauki/go-practice/hello-grpc/protobuffer"
 	"google.golang.org/grpc"
 	"log"
 	"net"
-	pb "tauki.com/practice/hello-grpc/protobuffer"
 )
 
 const (

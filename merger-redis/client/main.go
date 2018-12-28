@@ -4,11 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"github.com/gin-gonic/gin"
+	pb "github.com/tauki/go-practice/merger/protobuffer"
 	"google.golang.org/grpc"
 	"io/ioutil"
 	"log"
 	"net/http"
-	pb "tauki.com/practice/merger/protobuffer"
 )
 
 const (

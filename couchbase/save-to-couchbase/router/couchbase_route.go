@@ -2,8 +2,8 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"tauki.com/practice/couchbase/save-to-couchbase/controller"
-	"tauki.com/practice/couchbase/save-to-couchbase/models"
+	"github.com/tauki/go-practice/couchbase/save-to-couchbase/controller"
+	"github.com/tauki/go-practice/couchbase/save-to-couchbase/models"
 )
 
 func InitCouchDBRouter(router *gin.Engine, cfg *models.Config) {

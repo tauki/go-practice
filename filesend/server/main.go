@@ -2,11 +2,11 @@ package main
 
 import (
 	"context"
+	pb "github.com/tauki/go-practice/filesend/protobuffer"
 	"google.golang.org/grpc"
 	"io/ioutil"
 	"log"
 	"net"
-	pb "tauki.com/practice/filesend/protobuffer"
 )
 
 const (

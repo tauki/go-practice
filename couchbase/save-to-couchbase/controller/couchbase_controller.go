@@ -8,7 +8,7 @@ import (
 	"github.com/getsentry/raven-go"
 	"github.com/gin-gonic/gin"
 	"github.com/satori/go.uuid"
-	"tauki.com/practice/couchbase/save-to-couchbase/models"
+	"github.com/tauki/go-practice/couchbase/save-to-couchbase/models"
 	"log"
 	"net/http"
 	"strings"

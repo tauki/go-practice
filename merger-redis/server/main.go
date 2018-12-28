@@ -5,10 +5,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/go-redis/redis"
+	pb "github.com/tauki/go-practice/merger-redis/protobuffer"
 	"google.golang.org/grpc"
 	"log"
 	"net"
-	pb "tauki.com/practice/merger-redis/protobuffer"
 )
 
 const (

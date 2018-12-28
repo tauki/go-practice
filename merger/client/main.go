@@ -4,12 +4,12 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	pb "github.com/tauki/go-practice/merger/protobuffer"
 	"google.golang.org/grpc"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
-	pb "tauki.com/practice/merger/protobuffer"
 )
 
 const (

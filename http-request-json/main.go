@@ -3,9 +3,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	m "github.com/tauki/go-practice/http-request-json/model"
 	"net/http"
 	"strconv"
-	m "tauki.com/practice/http-request-json/model"
 )
 
 const (

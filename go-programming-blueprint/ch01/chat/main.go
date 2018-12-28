@@ -1,12 +1,12 @@
 package main
 
 import (
+	"flag"
 	"log"
 	"net/http"
 	"path/filepath"
 	"sync"
 	"text/template"
-	"flag"
 )
 
 // templ represents a single template
