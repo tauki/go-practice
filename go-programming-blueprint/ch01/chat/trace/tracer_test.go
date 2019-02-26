@@ -5,6 +5,7 @@ import (
 	"testing"
 )
 
+// TestNew tests the trace package's Trace method
 func TestNew(t *testing.T) {
 	var buf bytes.Buffer
 	tracer := New(&buf)
@@ -18,6 +19,7 @@ func TestNew(t *testing.T) {
 	}
 }
 
+// TestOff checks the behavior of nilTracer
 func TestOff(t *testing.T) {
 	var silentTracer Tracer = Off()
 	silentTracer.Trace("Something")
